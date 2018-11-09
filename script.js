@@ -7,13 +7,12 @@ var a;
 var nPoints = 80;
 
 function setup() {
-    createCanvas(window.innerWidth - 4, window.innerHeight - 4);
+    canvas = createCanvas(window.innerWidth - 4, window.innerHeight - 4);
+    canvas.id("canvas-id");
     for (var i = 0; i < nPoints; i++) {
         points.push(new Point(width / nPoints * i + width / nPoints / 2));
         stack.push(0);
     }
-    mic = new p5.AudioIn();
-    mic.start();
 }
 
 function draw() {
@@ -27,6 +26,6 @@ function draw() {
     n += 0.01;
 }
 
-window.addEventListener('devicemotion', function(event) {
-  a = event.accelerationIncludingGravity.x / 9.81;
+window.addEventListener('devicemotion', function (event) {
+    a = event.accelerationIncludingGravity.x / 9.81;
 });
